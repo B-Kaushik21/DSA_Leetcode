@@ -1,13 +1,15 @@
 class Solution:
     def largestTriangleArea(self, points: List[List[int]]) -> float:
-        ans=0.0
+        ans=0
         n=len(points)
         for i in range(n):
+            x1,y1=points[i]
             for j in range(i+1,n):
+                x2,y2=points[j]
                 for k in range(j+1,n):
-                    p=points[i]
-                    q=points[j]
-                    r=points[k]
-                    area= 0.5* abs( p[0]*(q[1]-r[1]) + q[0]*(r[1]-p[1]) + r[0]*(p[1]-q[1]) )
+                    x3,y3=points[k]
+                    area= 0.5* abs( x1*(y2-y3) + x2*(y3-y1) + x3*(y1-y2) )
                     ans = max(ans,area)
         return ans
+### shoelace formula 
+# area = 0.5 * ( x1(y2-y3) + x2(y3-y1) +x3(y1-y2))
