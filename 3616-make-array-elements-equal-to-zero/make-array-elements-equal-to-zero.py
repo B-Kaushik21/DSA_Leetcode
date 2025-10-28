@@ -1,0 +1,16 @@
+class Solution:
+    def countValidSelections(self, nums: List[int]) -> int:
+        n=len(nums)
+        count=0
+        s=sum(nums)
+        l,r=0,s
+        for i in range(n):
+            if nums[i]==0:
+                if 0<=l-r<=1:
+                    count+=1
+                if 0<=r-l<=1:
+                    count+=1
+            else:
+                l+=nums[i]
+                r-=nums[i]
+        return count
