@@ -14,7 +14,6 @@ class Solution:
                 search(root.left,path+str(root.val)+"->",res)
             if root.right!=None:
                 search(root.right,path+str(root.val)+"->",res)
-        if root:
-            search(root,"",res)
+        search(root,"",res)
         return res          
         
